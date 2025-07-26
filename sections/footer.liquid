@@ -1,0 +1,535 @@
+{% comment %}
+  Futuristic Footer Section for Black Daddy E-commerce
+  Features: Modern design, social links, newsletter signup, brand information
+{% endcomment %}
+
+<footer class="footer section--dark" data-section-id="{{ section.id }}" data-section-type="footer">
+  <div class="container">
+    
+    <!-- Footer Content -->
+    <div class="footer__content">
+      
+      <!-- Brand Section -->
+      <div class="footer__brand">
+        <div class="footer__logo">
+          <span class="logo-text">BLACK DADDY</span>
+          <div class="logo-glow"></div>
+        </div>
+        <p class="footer__description">
+          {{ section.settings.brand_description | default: 'Experience the future of fashion with our cutting-edge designs and innovative technology. Stand out from the crowd with Black Daddy.' }}
+        </p>
+        
+        <!-- Social Links -->
+        <div class="footer__social">
+          {% if section.settings.facebook_url %}
+            <a href="{{ section.settings.facebook_url }}" class="social-link" target="_blank" rel="noopener">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </a>
+          {% endif %}
+          
+          {% if section.settings.instagram_url %}
+            <a href="{{ section.settings.instagram_url }}" class="social-link" target="_blank" rel="noopener">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </a>
+          {% endif %}
+          
+          {% if section.settings.twitter_url %}
+            <a href="{{ section.settings.twitter_url }}" class="social-link" target="_blank" rel="noopener">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+              </svg>
+            </a>
+          {% endif %}
+          
+          {% if section.settings.youtube_url %}
+            <a href="{{ section.settings.youtube_url }}" class="social-link" target="_blank" rel="noopener">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+              </svg>
+            </a>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer__links">
+        <h3 class="footer__title">Quick Links</h3>
+        <ul class="footer__menu">
+          {% for link in section.settings.footer_menu.links %}
+            <li class="footer__menu-item">
+              <a href="{{ link.url }}" class="footer__menu-link">{{ link.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <!-- Customer Service -->
+      <div class="footer__links">
+        <h3 class="footer__title">Customer Service</h3>
+        <ul class="footer__menu">
+          <li class="footer__menu-item">
+            <a href="/pages/contact" class="footer__menu-link">Contact Us</a>
+          </li>
+          <li class="footer__menu-item">
+            <a href="/pages/shipping" class="footer__menu-link">Shipping Info</a>
+          </li>
+          <li class="footer__menu-item">
+            <a href="/pages/returns" class="footer__menu-link">Returns</a>
+          </li>
+          <li class="footer__menu-item">
+            <a href="/pages/faq" class="footer__menu-link">FAQ</a>
+          </li>
+          <li class="footer__menu-item">
+            <a href="/pages/size-guide" class="footer__menu-link">Size Guide</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="footer__newsletter">
+        <h3 class="footer__title">Stay Updated</h3>
+        <p class="footer__newsletter-text">
+          {{ section.settings.newsletter_text | default: 'Subscribe to our newsletter for exclusive offers and updates.' }}
+        </p>
+        
+        {% form 'customer' %}
+          <div class="newsletter-form">
+            <input 
+              type="email" 
+              name="contact[email]" 
+              placeholder="Enter your email"
+              class="newsletter-input"
+              required
+            >
+            <button type="submit" class="newsletter-btn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </button>
+          </div>
+        {% endform %}
+      </div>
+
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer__bottom">
+      <div class="footer__bottom-content">
+        <p class="footer__copyright">
+          © {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.
+        </p>
+        
+        <div class="footer__legal">
+          <a href="/pages/privacy-policy" class="footer__legal-link">Privacy Policy</a>
+          <a href="/pages/terms-of-service" class="footer__legal-link">Terms of Service</a>
+          <a href="/pages/refund-policy" class="footer__legal-link">Refund Policy</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  
+  <!-- Footer Background Effects -->
+  <div class="footer__background">
+    <div class="footer__grid"></div>
+    <div class="footer__gradient"></div>
+  </div>
+</footer>
+
+<style>
+/* ===== FOOTER STYLES ===== */
+.footer {
+  position: relative;
+  padding: var(--spacing-xxl) 0 var(--spacing-lg);
+  background: var(--darker-bg);
+  border-top: 1px solid var(--border-color);
+  overflow: hidden;
+}
+
+/* Background Effects */
+.footer__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.footer__grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(0, 255, 136, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 136, 0.05) 1px, transparent 1px);
+  background-size: 30px 30px;
+  animation: gridMove 30s linear infinite;
+}
+
+.footer__gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 80%, rgba(0, 255, 136, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(255, 0, 128, 0.1) 0%, transparent 50%);
+  opacity: 0.5;
+}
+
+/* Footer Content */
+.footer__content {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: var(--spacing-xxl);
+  margin-bottom: var(--spacing-xxl);
+  position: relative;
+  z-index: 2;
+}
+
+/* Brand Section */
+.footer__brand {
+  max-width: 400px;
+}
+
+.footer__logo {
+  position: relative;
+  margin-bottom: var(--spacing-lg);
+}
+
+.footer__logo .logo-text {
+  font-family: var(--font-primary);
+  font-size: 2rem;
+  font-weight: 900;
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  z-index: 2;
+}
+
+.footer__logo .logo-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  filter: blur(20px);
+  opacity: 0.3;
+  z-index: 1;
+}
+
+.footer__description {
+  font-family: var(--font-body);
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Social Links */
+.footer__social {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.social-link {
+  width: 50px;
+  height: 50px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: all var(--transition-normal);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.social-link:hover {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+  background: rgba(0, 255, 136, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Footer Links */
+.footer__links {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer__title {
+  font-family: var(--font-primary);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-lg);
+  position: relative;
+}
+
+.footer__title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  border-radius: var(--radius-sm);
+}
+
+.footer__menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer__menu-item {
+  margin-bottom: var(--spacing-sm);
+}
+
+.footer__menu-link {
+  font-family: var(--font-body);
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: all var(--transition-normal);
+  position: relative;
+  padding-left: 0;
+}
+
+.footer__menu-link::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 0;
+  height: 1px;
+  background: var(--primary-color);
+  transition: width var(--transition-normal);
+  transform: translateY(-50%);
+}
+
+.footer__menu-link:hover {
+  color: var(--primary-color);
+  padding-left: var(--spacing-md);
+}
+
+.footer__menu-link:hover::before {
+  width: 12px;
+}
+
+/* Newsletter */
+.footer__newsletter {
+  max-width: 350px;
+}
+
+.footer__newsletter-text {
+  font-family: var(--font-body);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: var(--spacing-lg);
+}
+
+.newsletter-form {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.newsletter-input {
+  flex: 1;
+  padding: var(--spacing-md);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  transition: all var(--transition-normal);
+}
+
+.newsletter-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(0, 255, 136, 0.2);
+}
+
+.newsletter-input::placeholder {
+  color: var(--text-secondary);
+}
+
+.newsletter-btn {
+  width: 50px;
+  height: 50px;
+  border: 1px solid var(--primary-color);
+  background: var(--primary-color);
+  color: var(--text-dark);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-normal);
+}
+
+.newsletter-btn:hover {
+  background: var(--secondary-color);
+  border-color: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+/* Footer Bottom */
+.footer__bottom {
+  border-top: 1px solid var(--border-color);
+  padding-top: var(--spacing-lg);
+  position: relative;
+  z-index: 2;
+}
+
+.footer__bottom-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+}
+
+.footer__copyright {
+  font-family: var(--font-body);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.footer__legal {
+  display: flex;
+  gap: var(--spacing-lg);
+}
+
+.footer__legal-link {
+  font-family: var(--font-body);
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color var(--transition-normal);
+}
+
+.footer__legal-link:hover {
+  color: var(--primary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .footer__content {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+  }
+  
+  .footer__brand {
+    grid-column: 1 / -1;
+    max-width: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer__content {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+  
+  .footer__bottom-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .footer__legal {
+    justify-content: center;
+  }
+  
+  .footer__logo .logo-text {
+    font-size: 1.5rem;
+  }
+  
+  .social-link {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: var(--spacing-xl) 0 var(--spacing-md);
+  }
+  
+  .footer__content {
+    gap: var(--spacing-md);
+  }
+  
+  .newsletter-form {
+    flex-direction: column;
+  }
+  
+  .newsletter-btn {
+    width: 100%;
+    height: 50px;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "brand_description",
+      "label": "Brand Description",
+      "default": "Experience the future of fashion with our cutting-edge designs and innovative technology. Stand out from the crowd with Black Daddy."
+    },
+    {
+      "type": "link_list",
+      "id": "footer_menu",
+      "label": "Footer Menu"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_text",
+      "label": "Newsletter Text",
+      "default": "Subscribe to our newsletter for exclusive offers and updates."
+    },
+    {
+      "type": "header",
+      "content": "Social Media"
+    },
+    {
+      "type": "url",
+      "id": "facebook_url",
+      "label": "Facebook URL"
+    },
+    {
+      "type": "url",
+      "id": "instagram_url",
+      "label": "Instagram URL"
+    },
+    {
+      "type": "url",
+      "id": "twitter_url",
+      "label": "Twitter URL"
+    },
+    {
+      "type": "url",
+      "id": "youtube_url",
+      "label": "YouTube URL"
+    }
+  ]
+}
+{% endschema %} 

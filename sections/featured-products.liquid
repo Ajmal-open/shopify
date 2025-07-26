@@ -1,0 +1,404 @@
+{% comment %}
+  Futuristic Featured Products Section
+  Features: Animated product cards, hover effects, modern grid layout
+{% endcomment %}
+
+<section class="featured-products section" data-section-id="{{ section.id }}" data-section-type="featured-products">
+  <div class="container">
+    
+    <!-- Section Header -->
+    <div class="section-header text-center">
+      <h2 class="section-title">{{ section.settings.title | default: 'FEATURED PRODUCTS' }}</h2>
+      <p class="section-subtitle">{{ section.settings.subtitle | default: 'Discover our latest futuristic designs' }}</p>
+    </div>
+
+    <!-- Products Grid -->
+    <div class="products-grid grid grid--3">
+      {% for product in collections[section.settings.collection].products limit: section.settings.products_to_show %}
+        <div class="product-card card animate-on-scroll">
+          
+          <!-- Product Image -->
+          <div class="product-image-container">
+            <a href="{{ product.url }}" class="product-image-link">
+              <img 
+                src="{{ product.featured_image | image_url: width: 400 }}" 
+                alt="{{ product.title }}"
+                class="product-image"
+                loading="lazy"
+              >
+              <div class="product-image-overlay">
+                <div class="product-actions">
+                  <button class="product-action-btn quick-view-btn" data-product-id="{{ product.id }}">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                      <path d="M1 12S5 4 12 4S23 12 23 12S19 20 12 20S1 12 1 12Z" stroke="currentColor" stroke-width="2"/>
+                      <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                  </button>
+                  <button class="product-action-btn add-to-cart-btn" 
+                          data-product-id="{{ product.id }}"
+                          data-variant-id="{{ product.selected_or_first_available_variant.id }}">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                      <path d="M9 22C9.55228 22 10 21.5523 10 21C10 20.4477 9.55228 20 9 20C8.44772 20 8 20.4477 8 21C8 21.5523 8.44772 22 9 22Z" stroke="currentColor" stroke-width="2"/>
+                      <path d="M20 22C20.5523 22 21 21.5523 21 21C21 20.4477 20.5523 20 20 20C19.4477 20 19 20.4477 19 21C19 21.5523 19.4477 22 20 22Z" stroke="currentColor" stroke-width="2"/>
+                      <path d="M1 1H5L7.68 14.39C7.77144 14.8504 8.02191 15.264 8.38755 15.5583C8.75318 15.8526 9.2107 16.009 9.68 16H19.4C19.8693 16.009 20.3268 15.8526 20.6925 15.5583C21.0581 15.264 21.3086 14.8504 21.4 14.39L23 6H6" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </a>
+            
+            <!-- Product Badge -->
+            {% if product.compare_at_price > product.price %}
+              <div class="product-badge product-badge--sale">SALE</div>
+            {% endif %}
+          </div>
+
+          <!-- Product Info -->
+          <div class="product-info">
+            <h3 class="product-title">
+              <a href="{{ product.url }}">{{ product.title }}</a>
+            </h3>
+            
+            <div class="product-price">
+              {% if product.compare_at_price > product.price %}
+                <span class="product-price--sale">{{ product.price | money }}</span>
+                <span class="product-price--compare">{{ product.compare_at_price | money }}</span>
+              {% else %}
+                <span class="product-price--regular">{{ product.price | money }}</span>
+              {% endif %}
+            </div>
+            
+            <!-- Product Variants -->
+            {% if product.has_only_default_variant == false %}
+              <div class="product-variants">
+                {% for option in product.options_with_values %}
+                  {% if option.name == 'Color' or option.name == 'Size' %}
+                    <div class="product-variant-group">
+                      <span class="variant-label">{{ option.name }}:</span>
+                      <div class="variant-options">
+                        {% for value in option.values %}
+                          <button class="variant-option" data-option="{{ option.name }}" data-value="{{ value }}">
+                            {{ value }}
+                          </button>
+                        {% endfor %}
+                      </div>
+                    </div>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+
+        </div>
+      {% endfor %}
+    </div>
+
+    <!-- View All Button -->
+    {% if section.settings.show_view_all %}
+      <div class="section-footer text-center">
+        <a href="{{ collections[section.settings.collection].url }}" class="button button--secondary">
+          View All Products
+          <svg class="button-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </a>
+      </div>
+    {% endif %}
+
+  </div>
+</section>
+
+<style>
+/* ===== FEATURED PRODUCTS STYLES ===== */
+.featured-products {
+  padding: var(--spacing-xxl) 0;
+  background: var(--darker-bg);
+}
+
+.section-header {
+  margin-bottom: var(--spacing-xxl);
+}
+
+.section-title {
+  font-family: var(--font-primary);
+  font-size: 2.5rem;
+  font-weight: 900;
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: var(--spacing-md);
+}
+
+.section-subtitle {
+  font-family: var(--font-secondary);
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Product Card */
+.product-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all var(--transition-normal);
+  position: relative;
+}
+
+.product-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 50px rgba(0, 255, 136, 0.2);
+  border-color: var(--primary-color);
+}
+
+/* Product Image */
+.product-image-container {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-normal);
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.1);
+}
+
+.product-image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.product-card:hover .product-image-overlay {
+  opacity: 1;
+}
+
+.product-actions {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.product-action-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  border: none;
+  color: var(--text-dark);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-normal);
+  transform: scale(0);
+}
+
+.product-card:hover .product-action-btn {
+  transform: scale(1);
+}
+
+.product-action-btn:hover {
+  background: var(--secondary-color);
+  transform: scale(1.1);
+}
+
+/* Product Badge */
+.product-badge {
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-secondary);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.product-badge--sale {
+  background: var(--secondary-color);
+  color: var(--text-dark);
+}
+
+/* Product Info */
+.product-info {
+  padding: var(--spacing-lg);
+}
+
+.product-title {
+  font-family: var(--font-secondary);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+}
+
+.product-title a {
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color var(--transition-normal);
+}
+
+.product-title a:hover {
+  color: var(--primary-color);
+}
+
+.product-price {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+.product-price--sale {
+  font-family: var(--font-primary);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.product-price--compare {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--text-secondary);
+  text-decoration: line-through;
+}
+
+.product-price--regular {
+  font-family: var(--font-primary);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* Product Variants */
+.product-variants {
+  margin-top: var(--spacing-md);
+}
+
+.product-variant-group {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+}
+
+.variant-label {
+  font-family: var(--font-secondary);
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  min-width: 60px;
+}
+
+.variant-options {
+  display: flex;
+  gap: var(--spacing-xs);
+}
+
+.variant-option {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.variant-option:hover,
+.variant-option.active {
+  background: var(--primary-color);
+  color: var(--text-dark);
+  border-color: var(--primary-color);
+}
+
+/* Section Footer */
+.section-footer {
+  margin-top: var(--spacing-xxl);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .product-actions {
+    flex-direction: column;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Featured Products",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "FEATURED PRODUCTS"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Discover our latest futuristic designs"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 3,
+      "max": 12,
+      "step": 3,
+      "default": 6,
+      "label": "Products to show"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "label": "Show view all button",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Products"
+    }
+  ]
+}
+{% endschema %} 

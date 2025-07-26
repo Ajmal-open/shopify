@@ -1,0 +1,351 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Black Daddy Futuristic",
+    "theme_version": "1.0.0",
+    "theme_author": "Black Daddy Brand",
+    "theme_documentation_url": "",
+    "theme_support_url": ""
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "primary_color",
+        "label": "Primary Color",
+        "default": "#00ff88"
+      },
+      {
+        "type": "color",
+        "id": "secondary_color",
+        "label": "Secondary Color",
+        "default": "#ff0080"
+      },
+      {
+        "type": "color",
+        "id": "accent_color",
+        "label": "Accent Color",
+        "default": "#0080ff"
+      },
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background Color",
+        "default": "#0a0a0a"
+      },
+      {
+        "type": "color",
+        "id": "text_color",
+        "label": "Text Color",
+        "default": "#ffffff"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "font_picker",
+        "id": "heading_font",
+        "label": "Heading Font",
+        "default": "helvetica_n4"
+      },
+      {
+        "type": "font_picker",
+        "id": "body_font",
+        "label": "Body Font",
+        "default": "helvetica_n4"
+      }
+    ]
+  },
+  {
+    "name": "Header",
+    "settings": [
+      {
+        "type": "link_list",
+        "id": "main_menu",
+        "label": "Main Menu",
+        "default": "main-menu"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_search",
+        "label": "Show search",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_theme_toggle",
+        "label": "Show theme toggle",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "sticky_header",
+        "label": "Sticky header",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "link_list",
+        "id": "footer_menu",
+        "label": "Footer Menu"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_social_links",
+        "label": "Show social links",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_newsletter",
+        "label": "Show newsletter signup",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Social Media",
+    "settings": [
+      {
+        "type": "text",
+        "id": "social_facebook_link",
+        "label": "Facebook",
+        "info": "https://www.facebook.com/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_twitter_link",
+        "label": "Twitter",
+        "info": "https://twitter.com/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_instagram_link",
+        "label": "Instagram",
+        "info": "https://instagram.com/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_youtube_link",
+        "label": "YouTube",
+        "info": "https://youtube.com/shopify"
+      }
+    ]
+  },
+  {
+    "name": "Product Pages",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_quantity_selector",
+        "label": "Show quantity selector",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_vendor",
+        "label": "Show product vendor",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_sku",
+        "label": "Show product SKU",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "show_product_tags",
+        "label": "Show product tags",
+        "default": false
+      },
+      {
+        "type": "select",
+        "id": "product_image_zoom",
+        "label": "Image zoom on hover",
+        "options": [
+          {
+            "value": "lightbox",
+            "label": "Lightbox"
+          },
+          {
+            "value": "zoom",
+            "label": "Zoom"
+          },
+          {
+            "value": "none",
+            "label": "None"
+          }
+        ],
+        "default": "lightbox"
+      }
+    ]
+  },
+  {
+    "name": "Collection Pages",
+    "settings": [
+      {
+        "type": "select",
+        "id": "products_per_page",
+        "label": "Products per page",
+        "options": [
+          {
+            "value": "12",
+            "label": "12"
+          },
+          {
+            "value": "24",
+            "label": "24"
+          },
+          {
+            "value": "36",
+            "label": "36"
+          },
+          {
+            "value": "48",
+            "label": "48"
+          }
+        ],
+        "default": "24"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_collection_image",
+        "label": "Show collection image",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_collection_description",
+        "label": "Show collection description",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Cart",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "cart_notes_enable",
+        "label": "Enable cart notes",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_terms_enable",
+        "label": "Show terms and conditions",
+        "default": false
+      },
+      {
+        "type": "page",
+        "id": "cart_terms_page",
+        "label": "Terms and conditions page"
+      }
+    ]
+  },
+  {
+    "name": "Search",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "predictive_search_enabled",
+        "label": "Enable predictive search",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "predictive_search_show_price",
+        "label": "Show price in search results",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "predictive_search_show_vendor",
+        "label": "Show vendor in search results",
+        "default": false
+      }
+    ]
+  },
+  {
+    "name": "Animations",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_animations",
+        "label": "Enable animations",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_particles",
+        "label": "Enable particle effects",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_custom_cursor",
+        "label": "Enable custom cursor",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_parallax",
+        "label": "Enable parallax effects",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Performance",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "lazy_load_images",
+        "label": "Lazy load images",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "minify_css",
+        "label": "Minify CSS",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "minify_js",
+        "label": "Minify JavaScript",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "SEO",
+    "settings": [
+      {
+        "type": "text",
+        "id": "meta_title",
+        "label": "Default meta title",
+        "default": "Black Daddy - Futuristic Fashion"
+      },
+      {
+        "type": "textarea",
+        "id": "meta_description",
+        "label": "Default meta description",
+        "default": "Experience the future of fashion with Black Daddy. Cutting-edge designs, premium materials, and innovative technology."
+      },
+      {
+        "type": "image_picker",
+        "id": "og_image",
+        "label": "Default social sharing image"
+      }
+    ]
+  }
+] 
